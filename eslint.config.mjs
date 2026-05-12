@@ -28,7 +28,8 @@ export default tseslint.config(
       "@typescript-eslint/no-explicit-any": "off",
       "@typescript-eslint/no-floating-promises": "off",
       "@typescript-eslint/no-unsafe-argument": "off",
-      "@typescript-eslint/no-namespace": "off"
+      "@typescript-eslint/no-namespace": "off",
+      "@typescript-eslint/no-empty-object-type": "off"
     }
   },
   eslintConfigPrettier
