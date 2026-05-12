@@ -1,5 +1,18 @@
+# Node modules
 /node_modules
 
+# Environment variables
 .env
+.env.development
+.env.production
+.env.test
 
+# Lock files
 package-lock.json
+yarn.lock
+
+# Others files
+backups/
+
+# Dist files
+dist/
