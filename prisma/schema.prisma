@@ -3,55 +3,20 @@ generator client {
 }
 
 datasource db {
-  provider = "mysql"
-  url      = env("DATABASE_URL")
+  provider =  "postgresql"
+  url      =  env("DATABASE_URL")
 }
 
 model User {
   id                String @id @default(uuid())
-  email             String @unique
-  cpf               String @unique
   name              String
+  email             String @unique
   phone             String
+  cpf               String @unique 
+  password          String
   created_at        DateTime @default(now())
+  updated_at        DateTime 
 
-  loan Loan?
 
   @@map("users")
 }
-
-model Book {
-  id                String @id @default(uuid())
-  title             String
-  subtitle          String?
-  author            String
-  publisher         String
-  publication_date  String
-  gender            String
-  edition           String
-  availability      String
-  isbn              String @unique
-  created_at        DateTime @default(now())
-
-  loan_id    String?
-  loan Loan? @relation(fields: [loan_id], references: [id])
-
-  @@map("books")
-}
-
-model Loan {
-  id                String @id @default(uuid())
-  start_date        DateTime
-  end_date          DateTime
-  created_at        DateTime @default(now())
-
-  user_cpf          String @unique
-
-  user User @relation(fields: [user_cpf], references: [cpf])
-
-  books Book[]
-
-  @@map("loans")
-}
-
-  
