@@ -16,3 +16,6 @@ backups/
 
 # Dist files
 dist/
+
+# Docker
+.docker
