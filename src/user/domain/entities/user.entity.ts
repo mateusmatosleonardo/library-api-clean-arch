@@ -6,8 +6,8 @@ export type UserProps = {
   phone: string;
   cpf: string;
   password: string;
-  createdAt?: Date;
-  updatedAt?: Date;
+  created_at?: Date;
+  updated_at?: Date;
 };
 
 export class UserEntity extends Entity<UserProps> {
@@ -41,11 +41,11 @@ export class UserEntity extends Entity<UserProps> {
   }
 
   get createdAt() {
-    return this.props.createdAt;
+    return this.props.created_at;
   }
 
   get updatedAt() {
-    return this.props.updatedAt;
+    return this.props.updated_at;
   }
 
   private set name(name: string) {
