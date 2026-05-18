@@ -35,8 +35,8 @@ export class UserPrismaRepository implements UserRepository.Repository {
     return user ? UserModelMapper.toEntity(user) : null;
   }
 
-  async insert(entity: UserEntity): Promise<void> {
-    await this.prismaService.user.create({
+  async insert(entity: UserEntity): Promise<UserEntity> {
+    const user = await this.prismaService.user.create({
       data: {
         id: entity.id,
         name: entity.name,
@@ -46,6 +46,7 @@ export class UserPrismaRepository implements UserRepository.Repository {
         password: entity.password
       }
     });
+    return UserModelMapper.toEntity(user);
   }
 
   findAll(): Promise<UserEntity[]> {
