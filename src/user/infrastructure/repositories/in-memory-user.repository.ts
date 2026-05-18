@@ -25,9 +25,9 @@ export class InMemoryUserRepository implements UserRepository.Repository {
     return Promise.resolve(user || null);
   }
 
-  insert(entity: UserEntity): Promise<void> {
+  insert(entity: UserEntity): Promise<UserEntity> {
     this.users.set(entity.id, entity);
-    return Promise.resolve();
+    return Promise.resolve(entity);
   }
 
   findById(id: string): Promise<UserEntity> {
